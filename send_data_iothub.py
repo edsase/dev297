@@ -202,7 +202,7 @@ def iothub_client_sample_run():
             print ( "IoTHubClient sending %d messages" % MESSAGE_COUNT )
 
             for message_counter in range(0, MESSAGE_COUNT):
-                timestamp, humidity, temperature = get_dht22_data()S
+                _, humidity, temperature = get_dht22_data()
                 msg_txt_formatted = MSG_TXT % (0.0, temperature, humidity)
 
                 # messages can be encoded as string or bytearray
