@@ -2,9 +2,9 @@ import RPi.GPIO as GPIO
 import io_settings
 import time
 
-def blink(*args, **kwargs):
+def blink(duration=5):
 
-    endtime = time.time() + 5
+    endtime = time.time() + duration
 
     try:
         while time.time() < endtime:

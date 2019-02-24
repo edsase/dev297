@@ -35,7 +35,7 @@ TEMPERATURE = 20.0
 HUMIDITY = 60
 MSG_TXT = "{\"temperature\": %.2f,\"humidity\": %.2f}"
 
-INTERVAL = 5
+INTERVAL = sys.argv[1]
 
 def send_confirmation_callback(message, result, user_context):
     print ( "IoT Hub responded to message with status: %s" % (result) )
@@ -53,6 +53,8 @@ def device_method_callback(method_name, payload, user_context):
     if method_name == "SetTelemetryInterval":
         try:
             INTERVAL = int(payload)
+            # call blink to let LED blink for number of seconds on payload
+            blink(INTERVAL)
             # Build and send the acknowledgment.
             device_method_return_value.response = "{ \"Response\": \"Executed direct method %s\" }" % method_name
             device_method_return_value.status = 200
@@ -76,8 +78,6 @@ def iothub_client_telemetry_sample_run():
         client.set_device_method_callback(
             device_method_callback, None)
 
-        # add another callback method
-        client.set_device_method_callback(blink, None)
 
         while True:
             # Build the message with simulated telemetry values.
