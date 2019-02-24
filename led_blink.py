@@ -3,9 +3,8 @@ import io_settings
 import time
 
 def blink(*args, **kwargs):
-    print(args[0])
-    duration = int(args[0])
-    endtime = time.time() + duration
+
+    endtime = time.time() + 5
 
     try:
         while time.time() < endtime:
