@@ -3,7 +3,7 @@ import io_settings
 import time
 
 def blink(*args, **kwargs):
-    durations = args[0]
+    duration = args[0]
     endtime = time.time() + duration
 
     try:
