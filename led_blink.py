@@ -2,8 +2,8 @@ import RPi.GPIO as GPIO
 import io_settings
 import time
 
-def blink(duration=6):
-
+def blink(*args, **kwargs):
+    durations = args[0]
     endtime = time.time() + duration
 
     try:
