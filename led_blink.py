@@ -24,3 +24,7 @@ def blink(duration=6):
             pass
 
 
+if __name__ == "__main__":
+    blink()
+
+
