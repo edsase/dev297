@@ -25,7 +25,7 @@ DEVICE_ID = "dev297_raspberrypi_device"
 
 # Details of the direct method to call.
 METHOD_NAME = "SetTelemetryInterval"
-METHOD_PAYLOAD = "5"
+METHOD_PAYLOAD = sys.argv[1]
 TIMEOUT = 60
 
 def iothub_devicemethod_sample_run():
