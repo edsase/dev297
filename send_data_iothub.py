@@ -7,6 +7,7 @@
 import random
 import time
 import sys
+import pickle
 
 # Using the Python Device SDK for IoT Hub:
 #   https://github.com/Azure/azure-iot-sdk-python
