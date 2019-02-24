@@ -6,6 +6,8 @@ import time
 import sys
 import pickle
 
+from led_blink import blink
+
 # Using the Python Device SDK for IoT Hub:
 #   https://github.com/Azure/azure-iot-sdk-python
 # The sample connects to a device-specific MQTT endpoint on your IoT Hub.
@@ -73,6 +75,9 @@ def iothub_client_telemetry_sample_run():
         # Set up the callback method for direct method calls from the hub.
         client.set_device_method_callback(
             device_method_callback, None)
+
+        # add another callback method
+        client.set_device_method_callback(blink, None)
 
         while True:
             # Build the message with simulated telemetry values.
